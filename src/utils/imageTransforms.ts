@@ -1,10 +1,10 @@
-const sharp = require('sharp');
+import sharp, { OutputInfo, Sharp } from 'sharp';
 
 const resizeImage = (
   filename: string,
   height: number,
   width: number
-): Promise<Buffer> => {
+): Promise<{ data: Buffer; info: OutputInfo; }> => {
   return sharp(filename)
     .resize({
       width: width,
