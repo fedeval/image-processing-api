@@ -1,17 +1,18 @@
-import sharp, { OutputInfo, Sharp } from 'sharp';
+import sharp from 'sharp';
+import path from 'path';
 
 const resizeImage = (
   filename: string,
   height: number,
   width: number
-): Promise<{ data: Buffer; info: OutputInfo }> => {
-  return sharp(filename)
+): void => {
+  sharp(filename)
     .resize({
       width: width,
       height: height,
       fit: sharp.fit.cover
     })
-    .toBuffer({ resolveWithObject: true });
+    .toFile(path.resolve(`public/images/resize/${filename}${height}x${width}.jpg`));
 };
 
 export default { resizeImage };
