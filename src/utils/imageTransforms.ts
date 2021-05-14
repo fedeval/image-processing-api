@@ -4,7 +4,7 @@ const resizeImage = (
   filename: string,
   height: number,
   width: number
-): Promise<{ data: Buffer; info: OutputInfo; }> => {
+): Promise<{ data: Buffer; info: OutputInfo }> => {
   return sharp(filename)
     .resize({
       width: width,
