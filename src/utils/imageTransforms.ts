@@ -1,4 +1,4 @@
-import sharp, { OutputInfo, Sharp } from 'sharp';
+import sharp from 'sharp';
 import path from 'path';
 
 const resizeImage = (
@@ -12,7 +12,7 @@ const resizeImage = (
       height: height,
       fit: sharp.fit.cover
     })
-    .toBuffer()
+    .toBuffer();
 };
 
 export { resizeImage };
