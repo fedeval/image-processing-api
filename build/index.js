@@ -13,3 +13,4 @@ app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
 app.listen(port, function () {
     console.log("Listening on port " + port);
 });
+exports.default = app;
