@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'path';
-import { resizeImage } from '../../utils/imageTransforms';
+import { resizeImage, resizedImagePath } from '../../utils/imageTransforms';
 import { promises as fsPromises } from 'fs';
 import fs from 'fs';
 
@@ -11,17 +11,18 @@ images.get('/', async (req, res) => {
     const filename = req.query.filename as unknown as string;
     const height = parseInt(req.query.height as unknown as string);
     const width = parseInt(req.query.width as unknown as string);
+    const outputImgPath = resizedImagePath(filename, height, width)
     if (
-      !fs.existsSync(`public/images/resized/${filename}${height}x${width}.jpg`)
+      !fs.existsSync(outputImgPath)
     ) {
       const resizedImage = await resizeImage(filename, height, width);
       await fsPromises.writeFile(
-        `public/images/resized/${filename}${height}x${width}.jpg`,
+        outputImgPath,
         resizedImage
       );
     }
     res.sendFile(
-      path.resolve(`public/images/resized/${filename}${height}x${width}.jpg`)
+      path.resolve(outputImgPath)
     );
   } catch (err) {
     console.log(err);
