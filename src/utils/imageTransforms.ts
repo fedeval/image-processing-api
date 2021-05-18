@@ -15,8 +15,12 @@ const resizeImage = (
     .toBuffer();
 };
 
-const resizedImagePath = (filename: string, height: number, width: number): string => {
-  return `public/images/resized/${filename}${height}x${width}.jpg`
-}
+const resizedImagePath = (
+  filename: string,
+  height: number,
+  width: number
+): string => {
+  return `public/images/resized/${filename}${height}x${width}.jpg`;
+};
 
 export { resizeImage, resizedImagePath };
