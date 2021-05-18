@@ -20,7 +20,8 @@ images.get('/', async (req, res) => {
     );
   } catch (err) {
     console.log(err);
-    res.status(404).send(err.message)
+    res.status(404).send(err.message);
+    // TODO: render page with error message and correct instructions for usage
   }
 });
 
