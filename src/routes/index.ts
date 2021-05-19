@@ -4,7 +4,7 @@ import images from './api/images';
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
-  res.send('API route');
+  res.render('index', { name: 'Federico' });
 });
 
 routes.use('/images', images);
