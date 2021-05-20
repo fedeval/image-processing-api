@@ -1,3 +1,19 @@
-<% images.forEach((image) => { %>
-  <img src=<%= 'images/full/' + image %> style="height: 300px; width: 300px"/>
-<% }) %>
+<head></head>
+<body>
+  <h1>Welcome to the ImageResizing API</h1>
+  <p>
+    This API allows you to resize images from a selection of
+    images (see list below). To resize an images use the following
+    syntax (note: words in full caps should be replaced with the value
+    of your choice):
+    http://localhost:3000/api/images?filename=<strong>FILENAME</strong>&height=<strong>HEIGHT</strong>&width=<strong>WIDTH</strong>
+  </p>
+  <div class="full-images">
+    <% images.forEach((image) => { %>
+      <div class="image">
+        <img src=<%= 'images/full/' + image %> style="height: 300px; width: 300px"/>
+        <%= `filename: ${image}` %> 
+      </div>
+    <% }) %>
+  </div>
+</body>
