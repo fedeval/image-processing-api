@@ -6,9 +6,8 @@ import path from 'path';
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
-  const basePath = 'public/images/full'
-  const images: string[] = fs.readdirSync(path.resolve(basePath));
-  res.render('index', { images: images, basePath: basePath });
+  const images: string[] = fs.readdirSync(path.resolve('public/images/full'));
+  res.render('index', { images: images });
 });
 
 routes.use('/images', images);
