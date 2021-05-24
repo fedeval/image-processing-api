@@ -3,6 +3,7 @@
 ## Introduction ##
 
 This is a simple REST API allowing users to create, access and resize placeholder images using the [Sharp](https://sharp.pixelplumbing.com/) Node.js image processing module.
+
 ---
 ## Getting Started ##
 
