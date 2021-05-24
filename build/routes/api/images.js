@@ -43,29 +43,34 @@ var express_1 = __importDefault(require("express"));
 var path_1 = __importDefault(require("path"));
 var imageTransforms_1 = require("../../utils/imageTransforms");
 var fs_1 = require("fs");
+var fs_2 = __importDefault(require("fs"));
 var images = express_1.default.Router();
 images.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var filename, height, width, resizedImage, err_1;
+    var filename, height, width, outputImgPath, resizedImage, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 3, , 4]);
+                _a.trys.push([0, 4, , 5]);
                 filename = req.query.filename;
                 height = parseInt(req.query.height);
                 width = parseInt(req.query.width);
+                outputImgPath = imageTransforms_1.resizedImagePath(filename, height, width);
+                if (!!fs_2.default.existsSync(outputImgPath)) return [3 /*break*/, 3];
                 return [4 /*yield*/, imageTransforms_1.resizeImage(filename, height, width)];
             case 1:
                 resizedImage = _a.sent();
-                return [4 /*yield*/, fs_1.promises.writeFile("public/images/resized/" + filename + height + "x" + width + ".jpg", resizedImage)];
+                return [4 /*yield*/, fs_1.promises.writeFile(outputImgPath, resizedImage)];
             case 2:
                 _a.sent();
-                res.sendFile(path_1.default.resolve("public/images/resized/" + filename + height + "x" + width + ".jpg"));
-                return [3 /*break*/, 4];
+                _a.label = 3;
             case 3:
+                res.sendFile(path_1.default.resolve(outputImgPath));
+                return [3 /*break*/, 5];
+            case 4:
                 err_1 = _a.sent();
-                console.log(err_1);
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                res.render('errors', { message: err_1.message });
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); });

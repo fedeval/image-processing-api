@@ -39,9 +39,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var index_1 = __importDefault(require("../index"));
+var app_1 = __importDefault(require("../app"));
 var supertest_1 = __importDefault(require("supertest"));
-var request = supertest_1.default(index_1.default);
+var request = supertest_1.default(app_1.default);
 describe('Test endpoint responses', function () {
     it('Gets /api endpoint', function (done) { return __awaiter(void 0, void 0, void 0, function () {
         var response;
