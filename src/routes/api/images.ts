@@ -19,7 +19,6 @@ images.get('/', async (req: express.Request, res: express.Response) => {
     res.sendFile(path.resolve(outputImgPath));
   } catch (err) {
     res.render('errors', { message: err.message });
-    // TODO: render page with error message and correct instructions for usage
   }
 });
 
