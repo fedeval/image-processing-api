@@ -1,4 +1,6 @@
-<head></head>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
 <body>
   <h1>Welcome to the ImageResizing API</h1>
   <p>
@@ -19,11 +21,11 @@
     Maximum dimensions allowed are 65500x65500 but for performance reasons
     it is recommmended to stay below 10000x10000.
   </p>
-  <div class="full-images">
-    <% images.forEach((image) => { %>
+  <div class="full-images-grid">
+    <% filenames.forEach((filename) => { %>
       <div class="image">
-        <img src=<%= 'images/full/' + image %> style="height: 300px; width: 300px"/>
-        <%= `filename: ${image}` %> 
+        <img src=<%= 'images/full/' + filename + '.jpg' %> style="height: 300px; width: 300px"/>
+        <%= `filename: ${filename}` %> 
       </div>
     <% }) %>
   </div>
