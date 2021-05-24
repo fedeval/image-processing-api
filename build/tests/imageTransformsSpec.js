@@ -58,5 +58,4 @@ describe('Testing image processing', function () {
             }
         });
     }); });
-    // TODO: add test to check a new file has been created
 });

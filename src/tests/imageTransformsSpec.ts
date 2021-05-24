@@ -11,6 +11,4 @@ describe('Testing image processing', () => {
   it('Resolves succesfully when provided the right filename, height and width parameters', async () => {
     await expectAsync(resizeImage('santamonica', 200, 200)).toBeResolved();
   });
-
-  // TODO: add test to check a new file has been created
 });
