@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
+    "copy-assets": "ts-node src/utils/copyAssets",
+    "build": "npx tsc && npm run copy-assets",
     "start": "nodemon src/app.ts",
     "jasmine": "jasmine",
     "test": "npm run build && npm run jasmine",
