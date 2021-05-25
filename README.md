@@ -72,7 +72,7 @@ The endpoint is `api/images` and requires three query params:
 | height        | it should be a positive integer      |
 | width         | it should be a positive integer      |
 
-Not that full instructions including a preview of all the available images and their filenames can be accessed using the main API endpoint. Assuming the app is running on port 3000 that would be:
+Note that full instructions including a preview of all the available images and their filenames can be accessed using the main API endpoint. Assuming the app is running on port 3000 that would be:
 
 [http://localhost:3000/api](http://localhost:3000/api)
 
